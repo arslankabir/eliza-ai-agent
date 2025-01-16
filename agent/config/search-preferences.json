@@ -1,0 +1,24 @@
+{
+    "defaultSearchSettings": {
+        "maxResults": 3,
+        "minContentLength": 150,
+        "excludedDomains": [
+            "example.com", 
+            "placeholder.com", 
+            "test.com"
+        ],
+        "preferredLanguages": ["en", "es"],
+        "safeSearchLevel": "moderate"
+    },
+    "apiSettings": {
+        "tavily": {
+            "maxApiResults": 10,
+            "includeAnswer": true
+        }
+    },
+    "searchTriggers": [
+        "/search", 
+        "/web", 
+        "!search"
+    ]
+}

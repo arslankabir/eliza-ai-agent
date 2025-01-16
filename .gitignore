@@ -1,23 +1,37 @@
-node_modules
-/out
+# Dependency directories
+node_modules/
+npm-debug.log
+yarn-error.log
 
+# Build output
+build/
+dist/
+out/
+
+# Environment files
 .env
-.env.production
+*.env
 .env.local
-.env_main
-concatenated-output.ts
-embedding-cache.json
-packages/plugin-buttplug/intiface-engine
+.env.production
 
-.idea
+# IDE specific files
+.idea/
+.vscode/
 .DS_Store
 
-dist/
-# Allow models directory but ignore model files
-models/*.gguf
-pgLite/
+# Temporary and cache files
+*.log
+embedding-cache.json
+concatenated-output.ts
 
+# Specific project exclusions
+packages/plugin-buttplug/intiface-engine
+pgLite/
+models/*.gguf
 cookies.json
+
+# Allow models directory but ignore model files
+models/
 
 db.sqlite
 searches/

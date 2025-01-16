@@ -9,6 +9,7 @@ import Chat from "./routes/chat";
 import Overview from "./routes/overview";
 import Home from "./routes/home";
 import useVersion from "./hooks/use-version";
+import { ChatInterface } from './components/ChatInterface';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -45,6 +46,9 @@ function App() {
                                             element={<Overview />}
                                         />
                                     </Routes>
+                                    <div className="app">
+                                        <ChatInterface />
+                                    </div>
                                 </div>
                             </SidebarInset>
                         </SidebarProvider>

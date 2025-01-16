@@ -1,169 +1,149 @@
-# Eliza 🤖
+# Eliza AI Agent
 
-<div align="center">
-  <img src="./docs/static/img/eliza_banner.jpg" alt="Eliza Banner" width="100%" />
-</div>
+## Project Overview
+Eliza is an advanced AI-powered chat interface combining natural language processing, web search, and intelligent response generation.
 
-<div align="center">
+## Prerequisites
+- Python 3.8+
+- Node.js 16+
+- npm 8+
 
-📖 [Documentation](https://elizaos.github.io/eliza/) | 🎯 [Examples](https://github.com/thejoven/awesome-eliza)
+## Setup and Installation
 
-</div>
-
-## 🌍 README Translations
-
-[中文说明](./README_CN.md) | [日本語の説明](./README_JA.md) | [한국어 설명](./README_KOR.md) | [Persian](./README_FA.md) | [Français](./README_FR.md) | [Português](./README_PTBR.md) | [Türkçe](./README_TR.md) | [Русский](./README_RU.md) | [Español](./README_ES.md) | [Italiano](./README_IT.md) | [ไทย](./README_TH.md) | [Deutsch](./README_DE.md) | [Tiếng Việt](./README_VI.md) | [עִברִית](https://github.com/elizaos/Elisa/blob/main/README_HE.md) | [Tagalog](./README_TG.md) | [Polski](./README_PL.md) | [Arabic](./README_AR.md) | [Hungarian](./README_HU.md) | [Srpski](./README_RS.md) | [Română](./README_RO.md) | [Nederlands](./README_NL.md) | [Ελληνικά](./README_GR.md)
-
-## 🚩 Overview
-
-<div align="center">
-  <img src="./docs/static/img/eliza_diagram.png" alt="Eliza Diagram" width="100%" />
-</div>
-
-## ✨ Features
-
-- 🛠️ Full-featured Discord, Twitter and Telegram connectors
-- 🔗 Support for every model (Llama, Grok, OpenAI, Anthropic, Gemini, etc.)
-- 👥 Multi-agent and room support
-- 📚 Easily ingest and interact with your documents
-- 💾 Retrievable memory and document store
-- 🚀 Highly extensible - create your own actions and clients
-- 📦 Just works!
-
-## Video Tutorials
-
-[AI Agent Dev School](https://www.youtube.com/watch?v=ArptLpQiKfI&list=PLx5pnFXdPTRzWla0RaOxALTSTnVq53fKL)
-
-## 🎯 Use Cases
-
-- 🤖 Chatbots
-- 🕵️ Autonomous Agents
-- 📈 Business Process Handling
-- 🎮 Video Game NPCs
-- 🧠 Trading
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- [Python 2.7+](https://www.python.org/downloads/)
-- [Node.js 23+](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-- [pnpm](https://pnpm.io/installation)
-
-> **Note for Windows Users:** [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual) is required.
-
-### Use the Starter (Recommended)
-
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/elizaos/eliza-starter.git
-cd eliza-starter
-cp .env.example .env
-pnpm i && pnpm build && pnpm start
+git clone https://github.com/yourusername/eliza-ai-agent.git
+cd eliza-ai-agent
 ```
 
-### Manually Start Eliza (Only recommended if you know what you are doing)
-
-#### Checkout the latest release
-
+### 2. Backend Setup
 ```bash
-# Clone the repository
-git clone https://github.com/elizaos/eliza.git
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 
-# This project iterates fast, so we recommend checking out the latest release
-git checkout $(git describe --tags --abbrev=0)
-# If the above doesn't checkout the latest release, this should work:
-# git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
+# Install backend dependencies
+pip install -r requirements.txt
 ```
 
-#### Edit the .env file
+### 3. Install Dependencies
 
-Copy .env.example to .env and fill in the appropriate values.
-
-```
-cp .env.example .env
-```
-
-Note: .env is optional. If you're planning to run multiple distinct agents, you can pass secrets through the character JSON
-
-
-#### Start Eliza
-
+#### Backend Dependencies
 ```bash
-pnpm i
-pnpm build
-pnpm start
-
-# The project iterates fast, sometimes you need to clean the project if you are coming back to the project
-pnpm clean
+# In agent directory
+cd agent
+pip install -r requirements.txt
 ```
 
-### Interact via Browser
-
-```
-Once the agent is running, you should see the message to run "pnpm start:client" at the end.
-Open another terminal and move to same directory and then run below command and follow the URL to chat to your agent.
-
+#### Frontend Dependencies
 ```bash
-pnpm start:client
+# In client directory
+cd client
+npm install
 ```
 
-Then read the [Documentation](https://elizaos.github.io/eliza/) to learn how to customize your Eliza.
+### 4. Configure Environment Variables
+1. Copy `.env.example` to `.env`
+2. Fill in your API keys for OpenAI and Tavily
 
-----
+### 5. Run the Application
 
-### Automatically Start Eliza
-
-The start script provides an automated way to set up and run Eliza:
-
+#### Start Backend
 ```bash
-sh scripts/start.sh
+# In agent directory
+python chat_api.py
 ```
 
-For detailed instructions on using the start script, including character management and troubleshooting, see our [Start Script Guide](./docs/docs/guides/start-script.md).
-
-> **Note**: The start script handles all dependencies, environment setup, and character management automatically.
-
-----
-
-### Modify Character
-
-1. Open `packages/core/src/defaultCharacter.ts` to modify the default character. Uncomment and edit.
-
-2. To load custom characters:
-    - Use `pnpm start --characters="path/to/your/character.json"`
-    - Multiple character files can be loaded simultaneously
-3. Connect with X (Twitter)
-    - change `"clients": []` to `"clients": ["twitter"]` in the character file to connect with X
-
----
-
-#### Additional Requirements
-
-You may need to install Sharp. If you see an error when starting up, try installing it with the following command:
-
+#### Start Frontend
+```bash
+# In client directory
+npm start
 ```
-pnpm install --include=optional sharp
+
+## Monorepo Package Management
+
+### Project Structure
+This is a monorepo containing multiple packages:
+- `packages/`: Contains various plugins and adapters
+- `client/`: Frontend application
+- `agent/`: Backend services
+
+### Installing Dependencies
+
+#### Root-level Dependencies
+```bash
+# Install root-level dependencies
+npm install
 ```
----
 
+#### Package-specific Dependencies
+To install dependencies for specific packages:
+```bash
+# Install dependencies for a specific package
+cd packages/[package-name]
+npm install
+```
 
-### Start Eliza with Gitpod
+#### Quick Install for All Packages
+```bash
+# Install dependencies for all packages
+npm run bootstrap  # If using Lerna or Yarn Workspaces
+# or
+npm run install:all  # Custom script in package.json
+```
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/elizaos/eliza/tree/main)
+### Working with Packages
 
----
+#### Listing Available Packages
+```bash
+# List all available packages
+ls packages/
+```
 
-### Community & contact
+#### Adding a New Package
+1. Create a new directory in `packages/`
+2. Initialize with `npm init`
+3. Add to monorepo configuration
 
-- [GitHub Issues](https://github.com/elizaos/eliza/issues). Best for: bugs you encounter using Eliza, and feature proposals.
-- [Discord](https://discord.gg/ai16z). Best for: sharing your applications and hanging out with the community.
+#### Updating Packages
+```bash
+# Update dependencies across all packages
+npm run update:packages
+```
 
-## Contributors
+### Troubleshooting
+- Ensure you're using the Node.js version specified in `.nvmrc`
+- If encountering dependency issues, try clearing npm cache:
+  ```bash
+  npm cache clean --force
+  ```
 
-<a href="https://github.com/elizaos/eliza/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=elizaos/eliza" />
-</a>
+### Plugin Development
+- Each plugin in `packages/` is a standalone module
+- Develop and test plugins independently
+- Ensure compatibility with the core Eliza framework
 
-## Star History
+## Features
+- Real-time WebSocket communication
+- Intelligent web search
+- OpenAI GPT integration
+- Dynamic conversational AI
 
-[![Star History Chart](https://api.star-history.com/svg?repos=elizaos/eliza&type=Date)](https://star-history.com/#elizaos/eliza&Date)
+## Troubleshooting
+- Ensure all API keys are valid
+- Check network connectivity
+- Verify dependency versions
+
+## Contributing
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+MIT License
+
+## Contact
+Arsalan Kabeer
+- Email: arsalan.kabeer@example.com
