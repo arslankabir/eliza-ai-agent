@@ -4,7 +4,6 @@
 Eliza is an advanced AI-powered chat interface combining natural language processing, web search, and intelligent response generation.
 
 ## Prerequisites
-- Python 3.8+
 - Node.js 16+
 - npm 8+
 
@@ -18,40 +17,36 @@ cd eliza-ai-agent
 
 ### 2. Backend Setup
 ```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+# Navigate to agent directory
+cd agent
 
 # Install backend dependencies
-pip install -r requirements.txt
+npm install
 ```
 
-### 3. Install Dependencies
-
-#### Backend Dependencies
+### 3. Frontend Setup
 ```bash
-# In agent directory
-cd agent
-pip install -r requirements.txt
-```
-
-#### Frontend Dependencies
-```bash
-# In client directory
+# Navigate to client directory
 cd client
+
+# Install frontend dependencies
 npm install
 ```
 
 ### 4. Configure Environment Variables
 1. Copy `.env.example` to `.env`
 2. Fill in your API keys for OpenAI and Tavily
+```bash
+# In agent directory
+cp .env.example .env
+```
 
 ### 5. Run the Application
 
 #### Start Backend
 ```bash
 # In agent directory
-python chat_api.py
+npm start  # or the specific start script from package.json
 ```
 
 #### Start Frontend
